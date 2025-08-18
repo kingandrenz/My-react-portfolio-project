@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import useOutsideClick from './useOutsideClick'; // make sure this path is correct
+import useOutsideClick from './test.jsx'; // make sure this path is correct
 
 export default function UseOnclickOutsideTest() {
   const [showContent, setShowContent] = useState(false);

@@ -1,33 +1,32 @@
-import { createContext } from 'react';
+import { createContext, useState, useEffect } from "react";
+import featureFlagDataServiceCall from "../data.js";
 
-
-export const featureFlagContext = createContext(null);
-
+export const FeatureFlagContext = createContext(null);
 
 export default function FeatureFlagGlobalState({ children }) {
   const [loading, setLoading] = useState(false);
   const [enableFlags, setEnableFlags] = useState({});
-  
-  
+
   async function fetchFeatureFlags() {
     try {
       setLoading(true);
-      const res = await featureFlagsDataServiceCall();
-      setEnableFlags(res)
-      setLoading(false);
+      const res = await featureFlagDataServiceCall(); // make sure this exists
+      setEnableFlags(res);
     } catch (error) {
-      setLoading(false);
       console.error(error);
-      throw new Error(error.message)
+      throw new Error(error.message);
+    } finally {
+      setLoading(false);
     }
   }
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     fetchFeatureFlags();
-  }, [])
+  }, []);
+
   return (
-    <featureFlagContext.Provider value={{loading, enableFlags}}>
+    <FeatureFlagContext.Provider value={{ loading, enableFlags }}>
       {children}
-    </featureFlagContext.Provider>
+    </FeatureFlagContext.Provider>
   );
 }

@@ -16,36 +16,37 @@ import GithubProfileFinder from  './components/github-profile-finder/index';
 import AutoComplete from  './components/search-auto-complete-with-api/index';
 import TicTocToe from './components/tic-tac-toe/index';
 import FeatureFlags from './components/feature-flags/index';
+import FeatureFlagGlobalState from './components/feature-flags/context/index_c.jsx'
 import UseOnclickOutsideTest from './components/use-outside-click/test';
-import UseWindowResizeTest from './components/use-Window-Resize/test';
+import UseWindowResizeTest from './components/use-window-resize/test';
 // import './App.css';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      {/*<Accordion />*/}
-      {/*<RandomColor />*/}
-      {/*<StarRating noOfStars={10} />*/}
-      {/*<ImageSlider url={'https://picsum.photos/v2/list'} limit={10} page={1}/> */}
-      {/*<LoadMoreImage />*/}
-      {/*<TreeView menus={menus} />*/}
-      {/*<QrCodeGenerator />*/}
-      {/*<LightDarkMode /> */}
-      {/*}<ScrollIndicator url={`https://dummyjson.com/products?limit=100`} />*/}
-      {/*<TabsTest />;*/}
-      {/*}<ModalTest />*/}
-      {/*<GithubProfileFinder />*/}
-      {/*<AutoComplete />*/}
-      {/*<TicTocToe />*/}
-      {/*<FeatureFlagGlobalState>
+      {/* <Accordion /> */}
+      {/* <RandomColor /> */}
+      {/* <StarRating noOfStars={10} /> */}
+      {/* <ImageSlider url={'https://picsum.photos/v2/list'} limit={10} page={1}/> */}
+      {/* <LoadMoreImage /> */}
+      {/* <TreeView menus={menus} /> */}
+      {/* <QrCodeGenerator /> */}
+      <LightDarkMode />
+
+      {/* ✅ Enable Feature Flags */}
+      {/* <FeatureFlagGlobalState>
         <FeatureFlags />
       </FeatureFlagGlobalState>*/}
-      {/*<UseFetchHookTest />*/}
-      {/*<UseOnclickOutsideTest />*/}
-      {/*<UseWindowResizeTest />*/}
-      
+
+      {/* <ScrollIndicator url={`https://dummyjson.com/products?limit=100`} /> */}
+      {/* <TabsTest /> */}
+      {/* <ModalTest /> */}
+      {/* <GithubProfileFinder /> */}
+      {/* <AutoComplete /> */}
+      {/* <TicTocToe /> */}
+      {/* <UseOnclickOutsideTest /> */}
+      {/* <UseWindowResizeTest /> */}
     </div>
   );
 }
 
-export default App;

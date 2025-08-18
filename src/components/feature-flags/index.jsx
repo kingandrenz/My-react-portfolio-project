@@ -1,50 +1,31 @@
-import { useContext } from 'react';
-import { FeatureFlagContext } from './path/to/context';
+import { useContext } from "react";
+import { FeatureFlagContext } from "./context/index_c.jsx";
 
-import LightDarkMode from './components/LightDarkMode';
-import TicTacToeBoard from './components/TicTacToeBoard';
-import RandomColorGenerator from './components/RandomColorGenerator';
-import Accordion from './components/Accordion';
-import TreeView from './components/TreeView';
+import LightDarkMode from "../light-dark-mode/index.jsx";
+import TicTacToeBoard from "../tic-tac-toe/index.jsx";
+import RandomColorGenerator from "../random_color/index.jsx";
+import Accordion from "../accordion/index.jsx";
+import TreeView from "../tree-view/index.jsx";
 
 export default function FeatureFlags() {
   const { loading, enableFlags } = useContext(FeatureFlagContext);
 
   const componentsToRender = [
-    {
-      key: 'showLightDarkMode',
-      component: <LightDarkMode />
-    },
-    {
-      key: 'showTicTacToeBoard',
-      component: <TicTacToeBoard />
-    },
-    {
-      key: 'showRandomColorGenerator',
-      component: <RandomColorGenerator />
-    },
-    {
-      key: 'showAccordion',
-      component: <Accordion />
-    },
-    {
-      key: 'showTreeView',
-      component: <TreeView />
-    }
+    { key: "showLightDarkMode", component: <LightDarkMode /> },
+    { key: "showTicTacToeBoard", component: <TicTacToeBoard /> },
+    { key: "showRandomColorGenerator", component: <RandomColorGenerator /> },
+    { key: "showAccordion", component: <Accordion /> },
+    { key: "showTreeView", component: <TreeView /> },
   ];
-
-  function checkEnabledFlags(currentKey) {
-    return enableFlags[currentKey];
-  }
 
   if (loading) {
     return <div>Please wait! Data is loading!!!</div>;
   }
 
   return (
-    <div>
-      {componentsToRender.map((item, index) =>
-        checkEnabledFlags(item.key) ? <div key={index}>{item.component}</div> : null
+    <div style={{display: "flex", flexDirection: "column", gap: "20px", padding: "10px", alignItems: "center"}}>
+      {componentsToRender.map((item) =>
+        enableFlags[item.key] ? <div key={item.key} style={{padding: "4px", marginLeft:"5px"}}>{item.component}</div> : null
       )}
     </div>
   );
