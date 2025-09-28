@@ -1,5 +1,5 @@
 
-
+import useWindowResize from './index.jsx'
 export default function UseWindowResizeTest(){
   
   const windowSize = useWindowResize();

@@ -19,19 +19,20 @@ import FeatureFlags from './components/feature-flags/index';
 import FeatureFlagGlobalState from './components/feature-flags/context/index_c.jsx'
 import UseOnclickOutsideTest from './components/use-outside-click/test';
 import UseWindowResizeTest from './components/use-window-resize/test';
+import BgGenerator from './components/Background-color-generator/index.jsx';
 // import './App.css';
 
 export default function App() {
   return (
-    <div className="App">
+    <div className="App flex flex-col gap-y-10">
       {/* <Accordion /> */}
       {/* <RandomColor /> */}
       {/* <StarRating noOfStars={10} /> */}
-      {/* <ImageSlider url={'https://picsum.photos/v2/list'} limit={10} page={1}/> */}
+      <ImageSlider url={'https://picsum.photos/v2/list'} limit={10} page={1}/>
       {/* <LoadMoreImage /> */}
-      {/* <TreeView menus={menus} /> */}
+      {/*<TreeView menus={menus} /> */}
       {/* <QrCodeGenerator /> */}
-      <LightDarkMode />
+      {/*<LightDarkMode />*/}
 
       {/* ✅ Enable Feature Flags */}
       {/* <FeatureFlagGlobalState>
@@ -45,7 +46,8 @@ export default function App() {
       {/* <AutoComplete /> */}
       {/* <TicTocToe /> */}
       {/* <UseOnclickOutsideTest /> */}
-      {/* <UseWindowResizeTest /> */}
+      {/*<UseWindowResizeTest /> */}
+      <BgGenerator />
     </div>
   );
 }

@@ -1,26 +1,26 @@
+import { useLayoutEffect, useState } from 'react';
 
-
-export default function useWindowResize(){
+export default function useWindowResize() {
   const [windowSize, setWindowSize] = useState({
-    width: 0,
-    height: 0,
-  })
-  
-  function handleResize(){
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  function handleResize() {
     setWindowSize({
       width: window.innerWidth,
-      height: window.innerHeigth,
-    })
+      height: window.innerHeight,
+    });
   }
-  
-  useLayoutEffect(()=>{
-    handleResize()
-    
+
+  useLayoutEffect(() => {
     window.addEventListener('resize', handleResize);
-    return ()=>{
-      window.removeEventListener('resize', handleResize)
-    }
-  , []})
-  
+
+    // Cleanup listener on unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return windowSize;
 }
